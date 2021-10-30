@@ -27,11 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/Farm")
 public class FincaWeb {
-     @GetMapping("/holaMundo")
-    public String saludad(){
-    return "Hola Mundo Tutoria";
-    }
-
+     
     @Autowired
     private ServiciosFinca servicio;
     @GetMapping("all")
@@ -40,7 +36,7 @@ public class FincaWeb {
     }
     
     @GetMapping("/{id}")
-    public Optional<Finca> getOrthesis(@PathVariable("id") int idFinca) {
+    public Optional<Finca> getFinca(@PathVariable("id") int idFinca) {
         return servicio.getFinca(idFinca);
     }
 

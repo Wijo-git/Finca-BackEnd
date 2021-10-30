@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import tutoria.Repositorio.ContadorCliente;
+import tutoria.Repositorio.StatusReservas;
 
 /**
  *
@@ -53,4 +55,20 @@ public class ReservacionWeb {
     public boolean delete(@PathVariable("id") int reservationId) {
         return servicio.deleteReservation(reservationId);
     }
+    
+    @GetMapping("/report-status")
+    public StatusReservas getReservas(){
+        return servicio.reporteStatusServicio();
+    }
+    
+    @GetMapping("/report-dates/{dateOne}/{dateTwo}")
+     public List<Reservacion> getReservasTiempo (@PathVariable("dateOne")String dateOne, @PathVariable("dateTwo")String dateTwo ){
+         return servicio.reporteTiempoServicio(dateOne, dateTwo);
+     }
+     
+     @GetMapping("/report-clients")
+     public List<ContadorCliente> getClientes(){
+         return servicio.reporteClientesServicio();
+     }
+
 }
