@@ -10,7 +10,9 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMethod;
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 /**
  *
  * @author USUARIO
